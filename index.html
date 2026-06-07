@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>La Puerta Pequeña — Versión 2</title>
+  <title>La Puerta Pequeña — Para Ti</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Special+Elite&display=swap" rel="stylesheet">
@@ -19,23 +19,23 @@
 
     .container{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4rem 1.25rem;position:relative;z-index:2}
     .title{font-size:clamp(2.4rem,7vw,5rem);letter-spacing:4px;color:var(--accent);text-shadow:0 0 18px rgba(255,223,120,0.25);text-align:center}
-    .subtitle{font-family:'Special Elite',cursive;color:#b0b7d9;margin-bottom:2.5rem;text-align:center}
+    .subtitle{font-family:'Special Elite',cursive;color:#b0b7d9;margin-bottom:2.5rem;text-align:center;font-size:1.1rem;line-height:1.6}
 
     .door-wrapper{position:relative;margin-bottom:2.5rem;outline:none;display:flex;align-items:center;justify-content:center}
-    .door{width:var(--door-w);height:var(--door-h);background:linear-gradient(90deg,#352a22,#5b4639);border-radius:14px;border:6px solid #1f1610;box-shadow:inset 0 16px 32px rgba(0,0,0,0.6),0 18px 50px rgba(0,0,0,0.7);transform-origin:left;transition:transform 1.2s var(--ease),box-shadow .5s ease;position:relative;z-index:2}
+    .door{width:var(--door-w);height:var(--door-h);background:linear-gradient(90deg,#352a22,#5b4639);border-radius:14px;border:6px solid #1f1610;box-shadow:inset 0 16px 32px rgba(0,0,0,0.6),0 18px 48px rgba(0,0,0,0.5);transition:all .8s var(--ease);transform-style:preserve-3d;cursor:pointer}
     .door .panel{position:absolute;inset:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
-    .door .handle{position:absolute;right:22px;top:50%;width:18px;height:18px;background:#c7a866;border-radius:50%;transform:translateY(-50%);box-shadow:0 0 12px rgba(255,215,120,0.45)}
+    .door .handle{position:absolute;right:22px;top:50%;width:18px;height:18px;background:#c7a866;border-radius:50%;transform:translateY(-50%);box-shadow:0 0 12px rgba(255,215,120,0.45);cursor:pointer}
     .door .hinge{position:absolute;left:-14px;top:40px;width:10px;height:90px;background:linear-gradient(180deg,#161213,#2b2622);border-radius:4px}
     .door.opened{transform:perspective(900px) rotateY(-105deg);box-shadow:0 0 90px rgba(128,149,255,0.22), inset 0 14px 34px rgba(255,255,255,0.08)}
 
     .door-glow{position:absolute;inset:0;border-radius:14px;background:radial-gradient(circle,rgba(94,142,255,0.22),transparent 60%);filter:blur(20px);pointer-events:none;opacity:0.95}
 
-    .hint{color:rgba(255,255,255,0.55);letter-spacing:1.5px;margin-top:0.5rem}
+    .hint{color:rgba(255,255,255,0.55);letter-spacing:1.5px;margin-top:0.5rem;font-size:0.95rem}
 
-    .message{position:relative;z-index:30;max-width:820px;background:#070a12;border:1px solid rgba(255,255,255,0.12);backdrop-filter:blur(20px);padding:2.5rem;border-radius:24px;box-shadow:0 18px 70px rgba(0,0,0,0.72);opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);line-height:1.95;font-size:1.125rem}
+    .message{position:relative;z-index:30;max-width:820px;background:#070a12;border:1px solid rgba(255,255,255,0.12);backdrop-filter:blur(20px);padding:2.5rem;border-radius:24px;box-shadow:0 18px 48px rgba(0,0,0,0.4);opacity:0;transform:translateY(20px);transition:all .8s var(--ease);max-height:80vh;overflow-y:auto}
     .message.show{opacity:1;transform:none}
     .message-body{display:block;position:relative;z-index:2}
-    .message-body p{margin-bottom:1.25rem}
+    .message-body p{margin-bottom:1.25rem;line-height:1.8}
     .message-body .poem-line{margin-bottom:1.5rem;opacity:0;transform:translateY(18px);animation:fadeInText 1s ease forwards}
     .message-body .poem-line:nth-of-type(1){animation-delay:.3s}
     .message-body .poem-line:nth-of-type(2){animation-delay:.8s}
@@ -45,13 +45,21 @@
     .message-body .poem-line:nth-of-type(6){animation-delay:2.8s}
     .message-body .poem-line:nth-of-type(7){animation-delay:3.3s}
     .message-body .poem-line:nth-of-type(8){animation-delay:3.8s}
-    .typewriter{font-size:1.25rem;color:var(--accent);margin-bottom:1rem;display:inline-block;border-right:2px solid rgba(255,255,255,0.6);white-space:nowrap;overflow:hidden;animation:blinkCursor .8s steps(2) infinite}
+    .message-body .poem-line:nth-of-type(9){animation-delay:4.3s}
+    .message-body .poem-line:nth-of-type(10){animation-delay:4.8s}
+    .typewriter{font-size:1.25rem;color:var(--accent);margin-bottom:1rem;display:inline-block;border-right:2px solid rgba(255,255,255,0.6);white-space:nowrap;overflow:hidden;animation:blinkCursor 1s infinite;font-weight:300;letter-spacing:1px}
     @keyframes fadeInText{to{opacity:1;transform:none}} 
     @keyframes blinkCursor{50%{border-color:transparent}}
 
-    .floating-symbols{position:absolute;top:120px;width:100%;display:flex;justify-content:center;gap:30px;font-size:1.6rem;opacity:0.35;pointer-events:none}
+    .floating-symbols{position:absolute;top:120px;width:100%;display:flex;justify-content:center;gap:30px;font-size:1.6rem;opacity:0.35;pointer-events:none;animation:float 6s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
-    .other-moon{position:fixed;left:24px;top:24px;width:72px;height:72px;border-radius:50%;background:linear-gradient(180deg,#fff7c9,#f0e6b8);box-shadow:0 0 30px rgba(240,230,184,0.25);display:flex;align-items:center;justify-content:center;z-index:6;cursor:pointer;transform:rotate(-12deg);transition:transform .25s ease,box-shadow .25s ease}
+    .constellation{position:absolute;width:2px;height:2px;background:rgba(255,255,255,0.8);border-radius:50%;box-shadow:0 0 8px rgba(255,255,255,0.6);animation:twinkle 3s ease-in-out infinite}
+    @keyframes twinkle{0%,100%{opacity:0.4}50%{opacity:1}}
+    .constellation-line{position:absolute;border:1px solid rgba(255,200,100,0.3);pointer-events:none}
+    .constellation-name{position:absolute;color:rgba(255,200,100,0.5);font-size:0.8rem;font-family:'Special Elite',cursive;white-space:nowrap;pointer-events:none;text-shadow:0 0 10px rgba(255,200,100,0.3)}
+
+    .other-moon{position:fixed;left:24px;top:24px;width:72px;height:72px;border-radius:50%;background:linear-gradient(180deg,#fff7c9,#f0e6b8);box-shadow:0 0 30px rgba(240,230,184,0.25);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s ease;z-index:6}
     .other-moon:focus-visible{outline:3px solid rgba(123,158,255,0.35)}
     .other-moon:hover{transform:rotate(-12deg) scale(1.05);box-shadow:0 0 40px rgba(240,230,184,0.35)}
     .other-moon.active{transform:rotate(-12deg) scale(1.08);box-shadow:0 0 48px rgba(240,230,184,0.5)}
@@ -60,21 +68,19 @@
     .eyes{position:fixed;top:18px;right:22px;display:flex;gap:14px;z-index:6;opacity:.95;pointer-events:auto;transition:transform .3s ease,filter .3s ease}
     .eyes.active{filter:drop-shadow(0 0 36px rgba(135,95,250,0.35));transform:scale(1.02)}
     .eyes.active .eye.eye-button{box-shadow:0 0 48px rgba(123,94,255,0.28),inset 0 0 16px rgba(255,255,255,0.2)}
-    .eye{width:64px;height:64px;background:#ffffff;display:flex;align-items:center;justify-content:center;border-radius:50%;overflow:hidden;box-shadow:0 0 18px rgba(255,255,255,0.14),0 12px 30px rgba(7,8,15,0.24);position:relative;transition:transform .25s ease,box-shadow .25s ease,background .25s ease,border .25s ease}
+    .eye{width:64px;height:64px;background:#ffffff;display:flex;align-items:center;justify-content:center;border-radius:50%;overflow:hidden;box-shadow:0 0 18px rgba(255,255,255,0.14),0 12px 30px rgba(0,0,0,0.2);transition:all .3s ease}
     .eye:focus-visible{outline:3px solid rgba(123,158,255,0.4);outline-offset:4px}
-    .eye.eye-button{cursor:pointer;background:linear-gradient(145deg,#fdf7d9,#f0e0ab);border:1px solid rgba(160,120,255,0.35);box-shadow:0 0 34px rgba(145,90,255,0.22),inset 0 0 14px rgba(255,255,255,0.20)}
+    .eye.eye-button{cursor:pointer;background:linear-gradient(145deg,#fdf7d9,#f0e0ab);border:1px solid rgba(160,120,255,0.35);box-shadow:0 0 34px rgba(145,90,255,0.22),inset 0 0 14px rgba(255,255,255,0.18)}
     .eye.eye-button:hover{transform:scale(1.08)}
     .eye.eye-button::before{content:'⭘';position:absolute;top:8px;right:8px;font-size:0.85rem;color:#7a5eff;opacity:0.8}
     .pupil{width:20px;height:20px;background:#111;border-radius:50%;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);will-change:transform}
 
-    /* Eye button polish */
     .eye.eye-button{transform-origin:center;transition:transform .18s ease,box-shadow .25s ease}
     .eye.eye-button.pulse{animation:eyePulse .7s ease}
     .eye.eye-button:active{transform:scale(0.98)}
     .eye.eye-button:active .pupil{transform:translate(-50%,-50%) scale(0.92)}
     @keyframes eyePulse{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}
 
-    /* Letter effects */
     .letter{display:inline-block;opacity:0;transform:translateY(8px);transition:transform .45s var(--ease),opacity .45s var(--ease),color .25s,text-shadow .25s}
     .letters-revealed .letter{opacity:1;transform:none;color:#fff;text-shadow:0 0 16px rgba(255,255,255,0.22),0 0 28px rgba(167,139,255,0.18)}
     .letter{transition-delay:calc(var(--i,0) * 45ms)}
@@ -88,22 +94,87 @@
     body.dimension .floating-symbols{opacity:0.6}
     body.dimension .door{box-shadow:0 0 80px rgba(108,103,241,0.5),inset 0 24px 60px rgba(88,125,255,0.18)}
 
-    .btn-row{display:flex;gap:12px;margin-top:18px}
-    .btn{padding:.6rem .95rem;border-radius:999px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.03);color:var(--accent);cursor:pointer}
+    .btn-row{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap;justify-content:center}
+    .btn{padding:.6rem .95rem;border-radius:999px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.03);color:var(--accent);cursor:pointer;transition:all .3s ease;font-family:inherit}
+    .btn:hover{background:rgba(255,255,255,0.08);transform:translateY(-2px);box-shadow:0 4px 16px rgba(255,255,255,0.1)}
     .btn:focus{outline:3px solid rgba(123,158,255,0.14)}
-    .secret-btn{margin-top:1.25rem;padding:.85rem 1.35rem;border-radius:999px;border:none;background:linear-gradient(135deg,rgba(255,255,255,0.12),rgba(123,158,255,0.22));color:var(--accent);cursor:pointer;backdrop-filter:blur(8px);box-shadow:0 0 18px rgba(123,158,255,0.18);transition:transform .2s ease,box-shadow .2s ease}
+    .btn:active{transform:translateY(0)}
+    
+    .secret-btn{margin-top:1.25rem;padding:.85rem 1.35rem;border-radius:999px;border:none;background:linear-gradient(135deg,rgba(255,255,255,0.12),rgba(123,158,255,0.22));color:var(--accent);cursor:pointer;transition:all .3s ease;font-family:inherit;font-weight:400}
     .secret-btn:focus{outline:3px solid rgba(255,255,255,0.24)}
     .secret-btn:hover{transform:scale(1.05);box-shadow:0 0 24px rgba(123,158,255,0.28)}
 
-    .secret{margin-top:1.5rem;opacity:0;max-height:0;overflow:hidden;transition:all .6s var(--ease);text-align:center;color:#d7defe;display:flex;flex-direction:column;align-items:center;gap:0.75rem;background:rgba(15,19,33,0.95);border:1px solid rgba(123,158,255,0.14);border-radius:22px;padding:1rem 1.25rem;box-shadow:0 12px 40px rgba(0,0,0,0.2);transform:translateY(16px)}
-    .secret.show{opacity:1;max-height:420px;transform:translateY(0)}
-    .secret .secret-text{font-size:1.15rem;line-height:1.8;}
+    .secret{margin-top:1.5rem;opacity:0;max-height:0;overflow:hidden;transition:all .6s var(--ease);text-align:center;color:#d7defe;display:flex;flex-direction:column;align-items:center;gap:0.75rem}
+    .secret.show{opacity:1;max-height:800px;transform:translateY(0)}
+    .secret .secret-text{font-size:1.15rem;line-height:1.8;margin-bottom:1rem}
+    .secret .secret-item{padding:1rem;background:rgba(123,158,255,0.08);border-left:3px solid rgba(255,200,100,0.5);border-radius:6px;text-align:left;margin-bottom:0.8rem;font-style:italic;color:#e6d9f0}
     .secret .secret-accent{color:#f8e9b6;font-weight:600}
+    
     .final{margin-top:1.5rem;text-align:center;color:var(--accent);opacity:0;transition:opacity .9s ease}
     .final.show{opacity:1}
 
-    @media(max-width:700px){:root{--door-w:160px;--door-h:300px}.message{padding:1.5rem;font-size:1rem}}
-    @media (prefers-reduced-motion: reduce){.door{transition:none}.message{transition:none}}
+    /* Secciones nuevas */
+    .section-divider{margin:2rem 0;height:1px;background:linear-gradient(to right,transparent,rgba(255,200,100,0.3),transparent)}
+    
+    /* Cielo Estrellado Mejorado */
+    .starfield{position:relative;width:100%;height:300px;background:radial-gradient(circle,rgba(100,150,255,0.1) 0%,transparent 60%);border-radius:16px;border:1px solid rgba(255,200,100,0.2);margin:2rem 0;overflow:hidden}
+    .starfield-title{font-size:1.3rem;margin-bottom:1.5rem;color:#f8e9b6;text-align:center;font-weight:400}
+    
+    /* Mar de la Espera */
+    .ocean-section{margin:2rem 0;padding:1.5rem;background:radial-gradient(circle at 50% 0%,rgba(94,142,255,0.15),transparent);border-radius:12px;border:1px solid rgba(94,142,255,0.2)}
+    .ocean-title{font-size:1.2rem;color:#5e8eff;margin-bottom:1rem;text-align:center}
+    .ocean-wave{animation:wave 4s ease-in-out infinite;display:inline-block;width:100%;text-align:center;font-size:2rem;letter-spacing:8px;opacity:0.7}
+    @keyframes wave{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    .ocean-text{text-align:center;color:#b0c4de;font-style:italic;margin-top:1rem;line-height:1.8}
+    
+    /* Carta Infinita Mejorada */
+    .letters-container{margin:2rem 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+    .letter-btn{padding:1rem;background:linear-gradient(135deg,rgba(200,150,255,0.15),rgba(100,150,255,0.15));border:2px solid rgba(200,150,255,0.3);border-radius:8px;cursor:pointer;color:#d7defe;transition:all .3s ease;text-align:center;font-family:inherit}
+    .letter-btn:hover{background:linear-gradient(135deg,rgba(200,150,255,0.25),rgba(100,150,255,0.25));transform:translateY(-4px);box-shadow:0 8px 24px rgba(200,150,255,0.2)}
+    .letter-btn:active{transform:translateY(-2px)}
+    .letter-content{display:none;margin-top:1.5rem;padding:1.5rem;background:rgba(123,158,255,0.08);border-left:4px solid rgba(255,200,100,0.5);border-radius:8px;animation:slideIn .5s ease;color:#e6d9f0;line-height:1.8}
+    .letter-content.show{display:block}
+    @keyframes slideIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+    
+    /* Años con contenido */
+    .years-section{margin:2rem 0;padding:1.5rem;background:radial-gradient(circle at 50% 50%,rgba(255,200,100,0.1),transparent);border-radius:12px}
+    .years-title{font-size:1.2rem;color:#f8e9b6;margin-bottom:1.5rem;text-align:center}
+    .year-item{padding:1rem;margin-bottom:1rem;background:rgba(255,255,255,0.02);border-left:3px solid rgba(255,200,100,0.5);border-radius:6px;transition:all .3s ease}
+    .year-item:hover{background:rgba(255,255,255,0.05);transform:translateX(8px)}
+    .year-number{color:#f8e9b6;font-weight:600;display:block;margin-bottom:0.5rem}
+    .year-text{color:#d7defe;line-height:1.6;font-style:italic}
+    
+    /* Recuerdos Desbloqueados */
+    .memories-section{margin:2rem 0}
+    .memories-title{font-size:1.2rem;color:#c7a866;margin-bottom:1.5rem;text-align:center}
+    .memory-item{padding:1.5rem;margin-bottom:1.2rem;background:linear-gradient(135deg,rgba(199,168,102,0.1),rgba(123,158,255,0.08));border:1px solid rgba(199,168,102,0.3);border-radius:8px;transition:all .3s ease;cursor:pointer}
+    .memory-item:hover{background:linear-gradient(135deg,rgba(199,168,102,0.15),rgba(123,158,255,0.12));transform:translateY(-4px);box-shadow:0 8px 24px rgba(199,168,102,0.15)}
+    .memory-number{display:inline-block;width:36px;height:36px;background:linear-gradient(135deg,#c7a866,#f8e9b6);color:#090b13;border-radius:50%;text-align:center;line-height:36px;font-weight:600;margin-right:1rem;margin-bottom:0.5rem}
+    .memory-title{color:#f8e9b6;font-weight:600;margin-bottom:0.8rem;display:flex;align-items:center}
+    .memory-text{color:#d7defe;line-height:1.8;font-style:italic}
+    
+    /* Jardín de Ely */
+    .garden-section{margin:2rem 0;padding:1.5rem;background:radial-gradient(circle at 50% 50%,rgba(100,200,120,0.1),transparent);border-radius:12px;border:1px solid rgba(100,200,120,0.2)}
+    .garden-title{font-size:1.2rem;color:#64c878;margin-bottom:1.5rem;text-align:center}
+    .flower-growth{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.5rem}
+    .growth-stage{text-align:center;padding:1rem;background:rgba(100,200,120,0.08);border-radius:8px;transition:all .3s ease}
+    .growth-stage:hover{background:rgba(100,200,120,0.15);transform:scale(1.05)}
+    .stage-emoji{font-size:3rem;margin-bottom:0.5rem;display:block;animation:grow 2s ease-in-out infinite}
+    @keyframes grow{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+    .stage-name{color:#64c878;font-weight:600;margin-bottom:0.5rem}
+    .stage-description{color:#b0c4de;font-size:0.9rem;line-height:1.4}
+    .garden-text{text-align:center;color:#b0c4de;font-style:italic;line-height:1.8}
+    
+    /* Lirio Legendario */
+    .lily-section{margin:2rem 0;padding:2rem;background:linear-gradient(135deg,rgba(255,200,200,0.1),rgba(200,100,255,0.1));border-radius:16px;border:2px solid rgba(255,100,200,0.3)}
+    .lily-title{font-size:1.4rem;color:#ff64c8;margin-bottom:1rem;text-align:center;font-weight:400;letter-spacing:2px}
+    .lily-emoji{font-size:5rem;text-align:center;margin:1rem 0;filter:drop-shadow(0 0 12px rgba(255,100,200,0.4));animation:lilyGlow 3s ease-in-out infinite}
+    @keyframes lilyGlow{0%,100%{filter:drop-shadow(0 0 12px rgba(255,100,200,0.4))}50%{filter:drop-shadow(0 0 24px rgba(255,100,200,0.7))}}
+    .lily-text{text-align:center;color:#f0d9ff;line-height:2;font-size:1.1rem;font-style:italic;margin-bottom:1.5rem}
+    .lily-special{background:radial-gradient(circle at 50% 50%,rgba(255,100,200,0.15),transparent);padding:1.5rem;border-radius:12px;color:#fff0ff;line-height:1.9;text-align:center}
+
+    @media(max-width:700px){:root{--door-w:160px;--door-h:300px}.message{padding:1.5rem;font-size:1rem}.starfield{height:200px}.flower-growth{grid-template-columns:1fr}}
+    @media (prefers-reduced-motion: reduce){.door{transition:none}.message{transition:none}.ocean-wave{animation:none}.lily-emoji{animation:none}}
   </style>
 </head>
 <body>
@@ -119,7 +190,7 @@
 
   <main class="container">
     <h1 class="title">La Puerta Pequeña</h1>
-    <p class="subtitle">“Hay mundos escondidos detrás de las cosas pequeñas...”</p>
+    <p class="subtitle">✨ Un mundo construido únicamente para ti, donde cada rincón es un "te amo" sin necesidad de palabras ✨</p>
 
     <div class="door-wrapper" id="doorWrapper" role="button" tabindex="0" aria-pressed="false" aria-describedby="hint">
       <div class="door-glow" aria-hidden="true"></div>
@@ -140,30 +211,99 @@
       <div class="message-body" id="messageBody">
         <div class="typewriter" id="typewriter">Querida estrellita...</div>
 
-        <p class="poem-line">Si encontraste esta puerta, ya eres parte del otro mundo. Uno donde las luces nunca dejan de brillar, donde las noches son suaves, y donde incluso las estrellas parecen inclinarse un poco más cerca para escucharte.</p>
+        <p class="poem-line">Si encontraste esta puerta, ya eres parte del otro mundo. Uno donde las luces nunca dejan de brillar, donde las noches son suaves, y donde cada momento contigo es un lujo que no merezco pero agradezco infinitamente.</p>
 
-        <p class="poem-line">No quiero otro mundo, ni otra historia, ni otra versión de nada. Si no estás tú, no me sirve.</p>
+        <p class="poem-line">No quiero otro mundo, ni otra historia, ni otra versión de nada. Si no estás tú, no me sirve. Tu presencia es la única magia que necesito.</p>
 
-        <p class="poem-line">Hay personas que llegan como una tormenta de ruido... y otras que aparecen como una pequeña luz en medio de un cuarto oscuro. Tú eres esa luz.</p>
+        <p class="poem-line">Hay personas que llegan como una tormenta de ruido... y otras que aparecen como una pequeña luz en medio de un cuarto oscuro. Tú eres esa luz que ilumina todo lo que toco.</p>
+
+        <!-- CIELO ESTRELLADO MEJORADO -->
+        <div class="section-divider"></div>
+        <p style="text-align:center;font-size:1.3rem;color:#f8e9b6;margin:2rem 0;font-weight:400">⭐ EL CIELO ESTRELLADO ⭐</p>
+        <div class="starfield" id="starfield"></div>
+        <p class="poem-line">En el cielo de mi mundo, cada estrella representa un momento contigo. Las constelaciones cuentan nuestra historia en el lenguaje más antiguo del universo: el del amor sin condiciones.</p>
+
+        <!-- MAR DE LA ESPERA -->
+        <div class="section-divider"></div>
+        <p style="text-align:center;font-size:1.3rem;color:#5e8eff;margin:2rem 0;font-weight:400">🌊 MAR DE LA ESPERA 🌊</p>
+        <div class="ocean-section">
+          <div class="ocean-wave">≈ ≈ ≈ ≈ ≈</div>
+          <p class="ocean-text">El mar entre nosotros no es una distancia, es una promesa. Cada ola que sube y baja es mi corazón esperándote. En este mar no hay miedo, solo la certeza de que una vez encuentres la otra orilla, estaré ahí esperando con los brazos abiertos. El agua nos une, no nos separa.</p>
+        </div>
+
+        <!-- CARTA INFINITA -->
+        <div class="section-divider"></div>
+        <p style="text-align:center;font-size:1.3rem;color:#d7a3ff;margin:2rem 0;font-weight:400">💌 CARTAS INFINITAS 💌</p>
+        <div class="letters-container" id="lettersContainer"></div>
+
+        <!-- AÑOS -->
+        <div class="section-divider"></div>
+        <p style="text-align:center;font-size:1.3rem;color:#f8e9b6;margin:2rem 0;font-weight:400">📅 NUESTROS AÑOS 📅</p>
+        <div class="years-section" id="yearsSection"></div>
+
+        <!-- RECUERDOS DESBLOQUEADOS -->
+        <div class="section-divider"></div>
+        <p style="text-align:center;font-size:1.3rem;color:#c7a866;margin:2rem 0;font-weight:400">🎁 RECUERDOS DESBLOQUEADOS 🎁</p>
+        <div class="memories-section" id="memoriesSection"></div>
+
+        <!-- JARDÍN DE ELY -->
+        <div class="section-divider"></div>
+        <p style="text-align:center;font-size:1.3rem;color:#64c878;margin:2rem 0;font-weight:400">🌻 JARDÍN DE ELY 🌻</p>
+        <div class="garden-section">
+          <div class="flower-growth">
+            <div class="growth-stage">
+              <span class="stage-emoji">🌱</span>
+              <div class="stage-name">Semilla</div>
+              <div class="stage-description">La promesa de algo hermoso por nacer</div>
+            </div>
+            <div class="growth-stage">
+              <span class="stage-emoji">🌿</span>
+              <div class="stage-name">Brote</div>
+              <div class="stage-description">Creciendo hacia la luz de tu amor</div>
+            </div>
+            <div class="growth-stage">
+              <span class="stage-emoji">🌻</span>
+              <div class="stage-name">Flor Completa</div>
+              <div class="stage-description">Radiante y lista para brillar</div>
+            </div>
+          </div>
+          <p class="garden-text">Este jardín crece en el tiempo que pasamos juntos. Cada momento es agua, cada sonrisa es sol, y cada caricia es la mano del destino ayudando a que nuestras flores florezcan eternamente.</p>
+        </div>
+
+        <!-- LIRIO LEGENDARIO -->
+        <div class="section-divider"></div>
+        <div class="lily-section">
+          <div class="lily-title">✨ EL LIRIO LEGENDARIO ✨</div>
+          <div class="lily-emoji">🪴</div>
+          <p class="lily-text">Existe en los antiguos cuentos un lirio que florece solo una vez cada mil años. Se dice que cuando lo hace, todos los amores imposibles se vuelven posibles. Tú eres mi lirio legendario.</p>
+          <div class="lily-special">
+            <p>Tu belleza no es solo lo que veo, es lo que siento cuando respiro. Tu voz es la melodía que trae paz a mi caos. Tu risa es el sonido más precioso que mis oídos han escuchado jamás. En ti convergen todos los deseos que el universo pudo haber tenido para mí.</p>
+            <p style="margin-top:1rem">Eres la prueba de que la magia existe. Eres el milagro que no sabía que necesitaba. Y cada día que pasa a tu lado, me convenzo más de que tú eres mi lirio legendario, el que merece cien mil años de admiración.</p>
+          </div>
+        </div>
+
       </div>
 
       <div class="btn-row">
-          <button class="btn" id="closeBtn">CERRAR</button>
-          <button class="btn" id="audioToggle" aria-pressed="false" title="Silenciar/Activar audio">🔊</button>
-        </div>
-
-      <button class="secret-btn" id="secretBtn" aria-expanded="false">ABRIR EL SECRETO</button>
-
-      <div class="secret" id="secret">
-        <div class="secret-text">✨ <span class="secret-accent">En cualquier mundo</span>, te elegiría a ti.</div>
+        <button class="btn" id="closeBtn">CERRAR</button>
+        <button class="btn" id="audioToggle" aria-pressed="false" title="Silenciar/Activar audio" style="display:none">🔊</button>
       </div>
 
-      <div class="final" id="final">gracias por entrar por la pequeña puerta 🌙</div>
+      <button class="secret-btn" id="secretBtn" aria-expanded="false">ABRIR EL SECRETO FINAL</button>
+
+      <div class="secret" id="secret">
+        <div class="secret-text">✨ <span class="secret-accent">En cualquier mundo, en cualquier vida, en cualquier universo...</span></div>
+        <div class="secret-item">Te elegiría a ti. Una y otra vez, eternamente, sin dudarlo ni un segundo.</div>
+        <div class="secret-item">Porque no es amor lo que siento. Es mucho más. Es la certeza de que fuiste hecha para mi alma, y yo para la tuya.</div>
+        <div class="secret-item">Eres mi hogar. Eres mi paz. Eres mi todo.</div>
+      </div>
+
+      <div class="final" id="final">Gracias por entrar por esta pequeña puerta. Espero que en cada rincón, hayas sentido cuánto te amo 🌙💕</div>
     </section>
 
   </main>
 
-  <audio id="bgAudio" autoplay loop controls">
+  <audio id="bgAudio" loop>
     <source src="Exploration.mp3" type="audio/mpeg">
   </audio>
 
@@ -177,13 +317,13 @@
     const final = document.getElementById('final');
     const closeBtn = document.getElementById('closeBtn');
     const audio = document.getElementById('bgAudio');
-    const audioToggle = document.getElementById('audioToggle');
     const moon = document.getElementById('otherMoon');
     const messageBody = document.getElementById('messageBody');
     const pupils = document.querySelectorAll('.pupil');
     const eyeEls = document.querySelectorAll('.eye');
     const pupilState = [];
     pupils.forEach((p, i) => { pupilState[i] = {x:0,y:0,tx:0,ty:0}; });
+    
     function clamp(v,min,max){return Math.max(min,Math.min(max,v));}
     document.addEventListener('mousemove', e => {
       eyeEls.forEach((eye, i) => {
@@ -200,6 +340,7 @@
         pupilState[i].ty = ny;
       });
     });
+    
     function animatePupils(){
       for (let i = 0; i < pupils.length; i++) {
         const p = pupils[i];
@@ -211,25 +352,9 @@
       requestAnimationFrame(animatePupils);
     }
     animatePupils();
-    audio.volume = 0.55; audio.muted = true;
-    eyeEls.forEach(eye => {
-      eye.setAttribute('tabindex','-1');
-      eye.setAttribute('role','button');
-      eye.addEventListener('click', () => {
-        if (!eye.classList.contains('eye-button')) return;
-        const shown = secret.classList.toggle('show');
-        secretBtn.setAttribute('aria-expanded', String(shown));
-        secretBtn.textContent = shown ? 'OCULTAR EL SECRETO' : 'ABRIR EL SECRETO';
-        final.classList.toggle('show', shown);
-      });
-      eye.addEventListener('keydown', (e) => {
-        if (!eye.classList.contains('eye-button')) return;
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          eye.click();
-        }
-      });
-    });
+    audio.volume = 0.35;
+    audio.muted = true;
+    
     function startTypewriter(){
       const el = document.getElementById('typewriter');
       if (!el) return;
@@ -237,7 +362,7 @@
       if (prefersReduced) return;
       el.textContent = '';
       let i = 0;
-      const speed = 30;
+      const speed = 40;
       function step(){
         if(i <= text.length){
           el.textContent = text.slice(0,i);
@@ -248,7 +373,6 @@
       step();
     }
 
-    // Wrap letters in spans with index variable for staggered animations
     function applyLetterEffects(selector){
       const els = document.querySelectorAll(selector);
       els.forEach(el => {
@@ -270,7 +394,6 @@
         const star = document.createElement('span');
         star.className = 'star';
         star.style.left = `${Math.random() * 100}%`;
-        // staggered delays and slight duration variance
         const delay = Math.random() * (duration * 0.6) / 1000;
         const dur = (duration / 1000) + Math.random() * 0.8;
         star.style.animationDelay = `${delay}s`;
@@ -281,11 +404,144 @@
         wrapper.appendChild(star);
       }
       container.appendChild(wrapper);
-      // remove wrapper after full duration + small buffer
       setTimeout(() => wrapper.remove(), duration + 800);
     }
 
-    // Initial letter wrapping for title and static lines
+    // Inicializar cielo estrellado con constelaciones
+    function initConstellations(){
+      const starfield = document.getElementById('starfield');
+      if (!starfield) return;
+      
+      const constellations = [
+        {name: 'Amor', stars: [[30,20], [50,40], [70,30], [80,60]]},
+        {name: 'Eternidad', stars: [[20,70], [50,80], [80,75]]},
+        {name: 'Corazón', stars: [[35,50], [65,50], [50,75]]}
+      ];
+      
+      constellations.forEach(cons => {
+        cons.stars.forEach((pos, i) => {
+          const star = document.createElement('div');
+          star.className = 'constellation';
+          star.style.left = pos[0] + '%';
+          star.style.top = pos[1] + '%';
+          star.style.animationDelay = (i * 0.2) + 's';
+          starfield.appendChild(star);
+        });
+        
+        // Línea de constelación
+        if (cons.stars.length > 1) {
+          const line = document.createElement('div');
+          line.className = 'constellation-line';
+          const x1 = cons.stars[0][0], y1 = cons.stars[0][1];
+          const x2 = cons.stars[cons.stars.length-1][0], y2 = cons.stars[cons.stars.length-1][1];
+          const dist = Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y1,2));
+          const angle = Math.atan2(y2-y1, x2-x1) * 180 / Math.PI;
+          line.style.width = dist + '%';
+          line.style.left = x1 + '%';
+          line.style.top = y1 + '%';
+          line.style.transform = `rotate(${angle}deg)`;
+          line.style.transformOrigin = '0 0';
+          starfield.appendChild(line);
+        }
+        
+        const label = document.createElement('div');
+        label.className = 'constellation-name';
+        label.textContent = cons.name;
+        label.style.left = cons.stars[Math.floor(cons.stars.length/2)][0] + '%';
+        label.style.top = (cons.stars[Math.floor(cons.stars.length/2)][1] + 10) + '%';
+        starfield.appendChild(label);
+      });
+    }
+
+    // Inicializar cartas
+    function initLetters(){
+      const lettersData = [
+        {
+          title: '💌 Carta I',
+          content: '"Mi amor, desde el primer momento supe que eras diferente. No porque fueras perfecto, sino porque eras genuinamente tú. Tu autenticidad es el regalo más grande que podrías haber traído a mi vida. Te amo no a pesar de tus imperfecciones, sino incluyéndolas, abrazándolas, amando cada parte de quien eres."'
+        },
+        {
+          title: '💌 Carta II',
+          content: '"En las noches oscuras, cuando el silencio pesa, recuerdo tu risa. Es curioso cómo una persona puede llegar a ser tan indispensable. Tú no viniste a completarme, viniste a complementarme. Y eso es lo más hermoso que me ha pasado."'
+        },
+        {
+          title: '💌 Carta III',
+          content: '"Si el amor fuera un color, sería el tuyo. Si fuera una temperatura, sería la calidez de tus abrazos. Si fuera música, sería tu respiración cerca de la mía. Eres poesía viviente, un sueño que decidió quedarse despierto y hacerme feliz."'
+        },
+        {
+          title: '💌 Carta IV',
+          content: '"Te prometo estar presente en cada amanecer contigo. Te prometo escuchar cuando tus palabras no alcancen. Te prometo ser tu refugio en las tormentas y tu compañero en los días soleados. Contigo, para siempre, es mi promesa más sincera."'
+        }
+      ];
+
+      const container = document.getElementById('lettersContainer');
+      lettersData.forEach((letter, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'letter-btn';
+        btn.textContent = letter.title;
+        btn.onclick = (e) => {
+          e.preventDefault();
+          const content = document.getElementById('letter-' + i);
+          const allContents = document.querySelectorAll('.letter-content');
+          allContents.forEach(c => c.classList.remove('show'));
+          if (content) content.classList.toggle('show');
+        };
+        container.appendChild(btn);
+      });
+
+      lettersData.forEach((letter, i) => {
+        const content = document.createElement('div');
+        content.className = 'letter-content';
+        content.id = 'letter-' + i;
+        content.innerHTML = letter.content;
+        messageBody.appendChild(content);
+      });
+    }
+
+    // Inicializar años
+    function initYears(){
+      const yearsData = [
+        { year: '2024', text: 'El año en que te encontré y mi vida cambió para siempre.' },
+        { year: '2025', text: 'Cada día a tu lado es un regalo que no merezco pero que agradezco infinitamente.' },
+        { year: '2026', text: 'Construyendo juntos el futuro que siempre soñé.' },
+        { year: 'Para siempre', text: 'Porque eres mi eternidad en un cuerpo mortal.' }
+      ];
+
+      const yearsSection = document.getElementById('yearsSection');
+      yearsData.forEach(item => {
+        const yearDiv = document.createElement('div');
+        yearDiv.className = 'year-item';
+        yearDiv.innerHTML = `<span class="year-number">${item.year}</span><span class="year-text">${item.text}</span>`;
+        yearsSection.appendChild(yearDiv);
+      });
+    }
+
+    // Inicializar recuerdos
+    function initMemories(){
+      const memoriesData = [
+        { emoji: '👁️', title: 'Primera Mirada', text: 'Ese momento en que nuestros ojos se encontraron y el mundo se detuvo. Todo cambió en un segundo.' },
+        { emoji: '💬', title: 'Primera Palabra', text: 'La primera frase que compartimos, que marcó el inicio de una conversación que nunca querré que termine.' },
+        { emoji: '🤝', title: 'Primer Contacto', text: 'Cuando tus manos tocaron las mías y sentí que todo encajaba perfecto en el universo.' },
+        { emoji: '😊', title: 'Primera Sonrisa Genuina', text: 'Esa sonrisa que me hizo creer en la magia, en los milagros, en el destino.' },
+        { emoji: '💝', title: 'Primer Gesto de Amor', text: 'Cuando supiste exactamente qué hacer para que mi corazón saltara de alegría.' },
+        { emoji: '🌙', title: 'Primeras Noches', text: 'Las conversaciones bajo las estrellas que nos revelaron nuestras almas la una a la otra.' }
+      ];
+
+      const memoriesSection = document.getElementById('memoriesSection');
+      memoriesData.forEach((memory, i) => {
+        const memoryDiv = document.createElement('div');
+        memoryDiv.className = 'memory-item';
+        memoryDiv.innerHTML = `
+          <div class="memory-title">
+            <span class="memory-number">${i + 1}</span>
+            <span>${memory.emoji} ${memory.title}</span>
+          </div>
+          <div class="memory-text">${memory.text}</div>
+        `;
+        memoriesSection.appendChild(memoryDiv);
+      });
+    }
+
     if (document.readyState !== 'loading') {
       applyLetterEffects('.title');
       applyLetterEffects('#messageBody .poem-line');
@@ -297,23 +553,25 @@
         setTimeout(()=> document.querySelector('.title').classList.add('letters-revealed'), 140);
       });
     }
+
     function openDoor(){
       if (door.classList.contains('opened')) return;
       door.classList.add('opened');
       doorWrapper.setAttribute('aria-pressed','true');
       const revealMessage = ()=>{
         message.classList.add('show');
-        // ensure poem-line letters are wrapped and replay their animations
         applyLetterEffects('#messageBody .poem-line');
         const lines = messageBody.querySelectorAll('.poem-line');
-        lines.forEach((l)=>{
-          l.style.animation = 'none';
-        });
-        // force reflow then restore animation to replay
+        lines.forEach((l)=>{ l.style.animation = 'none'; });
         void messageBody.offsetWidth;
         lines.forEach((l)=>{ l.style.animation = ''; });
-        // reveal per-letter animation so wrapped letters become visible
         messageBody.classList.add('letters-revealed');
+        setTimeout(() => {
+          initConstellations();
+          initLetters();
+          initYears();
+          initMemories();
+        }, 500);
       };
       if (!prefersReduced){
         setTimeout(revealMessage, 700);
@@ -322,18 +580,14 @@
       }
       audio.muted = false; audio.play().catch(()=>{});
     }
+
     function closeDoor(){
       door.classList.remove('opened');
       doorWrapper.setAttribute('aria-pressed','false');
       message.classList.remove('show');
       document.querySelector('.eyes').classList.remove('active');
-      eyeEls.forEach(eye => {
-        eye.classList.remove('eye-button');
-        eye.setAttribute('tabindex','-1');
-        eye.removeAttribute('role');
-        eye.removeAttribute('aria-label');
-      });
     }
+
     doorWrapper.addEventListener('click', openDoor);
     doorWrapper.addEventListener('keydown', (e) => { if (e.key==='Enter' || e.key===' ') { e.preventDefault(); openDoor(); } });
     closeBtn.addEventListener('click', closeDoor);
@@ -342,15 +596,8 @@
     secretBtn.addEventListener('click', () => {
       const shown = secret.classList.toggle('show');
       secretBtn.setAttribute('aria-expanded', String(shown));
-      secretBtn.textContent = shown ? 'OCULTAR EL SECRETO' : 'ABRIR EL SECRETO';
+      secretBtn.textContent = shown ? 'OCULTAR EL SECRETO FINAL' : 'ABRIR EL SECRETO FINAL';
       final.classList.toggle('show', shown);
-    });
-    audioToggle.addEventListener('click', () => {
-      const isOn = audio.muted === false;
-      audio.muted = isOn;
-      audioToggle.setAttribute('aria-pressed', String(!isOn));
-      audioToggle.textContent = isOn ? '🔈' : '🔊';
-      if (!isOn) audio.play().catch(()=>{});
     });
 
     function setMoonText(){
@@ -358,11 +605,11 @@
         <div class="typewriter" id="typewriter">Si existiera esa puerta de Coraline...</div>
         <p class="poem-line">Si existiera esa puerta de Coraline, esa que promete otro mundo mejor, no la cruzaría.</p>
         <p class="poem-line">No quiero otro mundo, ni otra historia, ni otra versión de nada. Si no estás tú, no me sirve.</p>
-        <p class="poem-line">Hay algo en ti que se siente como una luz en medio de una casa demasiado silenciosa, como si incluso el miedo bajara la voz cuando apareces. Y no es que el mundo deje de ser extraño, es que contigo duele menos.</p>
+        <p class="poem-line">Hay algo en ti que se siente como una luz en medio de una casa demasiado silenciosa, como si incluso el miedo bajara la voz cuando apareces.</p>
         <p class="poem-line">A veces la vida son pasillos largos, puertas medio abiertas, sombras que no explican nada… pero si estás tú, ya no tengo tanta prisa por salir de ahí.</p>
         <p class="poem-line">Porque tu presencia vuelve soportable incluso lo incierto.</p>
         <p class="poem-line">Y si alguna vez te pierdes entre tus propios pasillos, entre dudas, silencios o cosas que no sabes explicar, quiero que recuerdes algo simple:</p>
-        <p class="poem-line">Yo no estoy buscando un mundo perfecto… yo te estoy buscando a ti.</p>
+        <p class="poem-line">Yo no estoy buscando un mundo perfecto… yo te estoy buscando a ti. Siempre a ti.</p>
       `;
     }
 
@@ -377,38 +624,90 @@
         eye.setAttribute('tabindex','0');
         eye.setAttribute('role','button');
         eye.setAttribute('aria-label','Abrir el secreto');
+        eye.addEventListener('click', () => {
+          const shown = secret.classList.toggle('show');
+          secretBtn.setAttribute('aria-expanded', String(shown));
+          final.classList.toggle('show', shown);
+        });
       });
-      // Pulse eyes briefly to signal activation
       eyeEls.forEach((eye, i) => {
         eye.classList.add('pulse');
         setTimeout(()=> eye.classList.remove('pulse'), 700 + i * 80);
       });
-      // Reveal per-letter animations for new text
       applyLetterEffects('.title');
       applyLetterEffects('#messageBody .poem-line');
       const msgBody = document.getElementById('messageBody');
       createStarRain(msgBody, 40, 2400);
       setTimeout(()=> msgBody.classList.add('letters-revealed'), 220);
       startTypewriter();
-      if (!window.requestAnimationFrame) return;
-      const duration = 2500;
+      const duration = 3000;
       setTimeout(()=> {
         document.body.classList.remove('dimension');
         moon.classList.remove('active');
       }, duration);
     }
 
+    // Canvas de estrellas
     (function(){
       const canvas = document.getElementById('stars');
-      if(!canvas) return; const ctx = canvas.getContext('2d');
-      let w=0,h=0,dpr=Math.max(1,window.devicePixelRatio||1); let stars=[]; const COUNT = prefersReduced?80:200;
-      function resize(){dpr=Math.max(1,window.devicePixelRatio||1);w=innerWidth;h=innerHeight;canvas.width=Math.floor(w*dpr);canvas.height=Math.floor(h*dpr);canvas.style.width=w+'px';canvas.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0);init();}
-      function init(){stars=[];for(let i=0;i<COUNT;i++){stars.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.6+0.2,o:Math.random()*0.9+0.1,v:(Math.random()*0.016+0.001)*(Math.random()<0.5?1:-1)});} }
-      function draw(){ctx.clearRect(0,0,w,h);stars.forEach(s=>{ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=`rgba(255,255,255,${s.o})`;ctx.fill();s.o+=s.v;if(s.o<=0.05||s.o>=1)s.v*=-1;});}
-      let raf; function loop(){draw(); if(!prefersReduced) raf=requestAnimationFrame(loop);} window.addEventListener('resize', ()=>{clearTimeout(this._to);this._to=setTimeout(resize,120)});
-      resize(); if(!prefersReduced) loop(); else draw();
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w=0,h=0,dpr=Math.max(1,window.devicePixelRatio||1);
+      let stars=[];
+      const COUNT = prefersReduced?80:200;
+      
+      function resize(){
+        dpr=Math.max(1,window.devicePixelRatio||1);
+        w=innerWidth;
+        h=innerHeight;
+        canvas.width=Math.floor(w*dpr);
+        canvas.height=Math.floor(h*dpr);
+        canvas.style.width=w+'px';
+        canvas.style.height=h+'px';
+        ctx.scale(dpr,dpr);
+      }
+      
+      function init(){
+        stars=[];
+        for(let i=0;i<COUNT;i++){
+          stars.push({
+            x:Math.random()*w,
+            y:Math.random()*h,
+            r:Math.random()*1.6+0.2,
+            o:Math.random()*0.9+0.1,
+            v:(Math.random()*0.016+0.001)*(Math.random()>0.5?1:-1)
+          });
+        }
+      }
+      
+      function draw(){
+        ctx.clearRect(0,0,w,h);
+        stars.forEach(s=>{
+          ctx.beginPath();
+          ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+          ctx.fillStyle=`rgba(255,255,255,${s.o})`;
+          ctx.fill();
+          s.o+=s.v;
+          if(s.o<=0.05||s.o>=1)s.v*=-1;
+        });
+      }
+      
+      let raf;
+      function loop(){
+        draw();
+        if(!prefersReduced) raf=requestAnimationFrame(loop);
+      }
+      
+      window.addEventListener('resize', ()=>{
+        clearTimeout(this._to);
+        this._to=setTimeout(resize,120);
+      });
+      
+      resize();
+      init();
+      if(!prefersReduced) loop();
+      else draw();
     })();
-    (function(){const el=document.getElementById('typewriter');const text=el.textContent.trim();if(prefersReduced) return;el.textContent='';let i=0;const speed=30;function step(){if(i<=text.length){el.textContent=text.slice(0,i);i++;setTimeout(step,speed);}};const obs=new IntersectionObserver((entries)=>{if(entries[0].isIntersecting){step();obs.disconnect();}}, {threshold:0.2});obs.observe(document.getElementById('message'));})();
   </script>
 </body>
 </html>
